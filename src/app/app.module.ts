@@ -21,6 +21,8 @@ import { ShowDetailsComponent } from './show-details/show-details.component';
 import { HomeComponent } from './home/home.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BonusListComponent } from './bouns-list/bonus-list.component';
+import { BounsAddComponent, BonusAddComponent } from './bonus-add/bonus-add.component';
 
 
 
@@ -28,17 +30,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    
+
     AddEmployeeComponent,
          UpdateEmployeeComponent,
          ShowDetailsComponent,
-         AdminLoginComponent
+         AdminLoginComponent,
+         BonusListComponent,
+         BounsAddComponent,
+         BonusAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule,FormsModule,HomeComponent, BrowserAnimationsModule , 
+    HttpClientModule,FormsModule,HomeComponent, BrowserAnimationsModule ,
     MatFormFieldModule, MatInputModule,MatFormFieldModule, MatInputModule, MatDatepickerModule,
      MatNativeDateModule
   ],

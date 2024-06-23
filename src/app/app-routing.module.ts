@@ -6,8 +6,10 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import { HomeComponent } from './home/home.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import {BonusListComponent} from "./bouns-list/bonus-list.component";
+import {BonusAddComponent} from "./bonus-add/bonus-add.component";
 
-  
+
 
 const routes: Routes = [
 
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'updating-by-id/:id',component:UpdateEmployeeComponent},
   {path:'details-of-employee/:id',component:ShowDetailsComponent},
   {path:'home',component:HomeComponent},
-  {path:'login',component:AdminLoginComponent}
+  {path:'login',component:AdminLoginComponent},
+  {path:'bonus', component:BonusListComponent},
+  {path:'add-bonus', component:BonusAddComponent}
 ];
 
 @NgModule({

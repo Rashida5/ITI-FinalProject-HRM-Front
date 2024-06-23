@@ -1,0 +1,69 @@
+<br>
+<br>
+<!-- <h1>Employee List</h1> -->
+
+<div class="container">
+
+<!--  <div >-->
+<!--    <form (ngSubmit)="goToEmployee()" >-->
+<!--      <div class="form-group col-md-6 inline ">-->
+
+<!--        <input  [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by ID">-->
+<!--        <button class="btn btn-secondary " type="submit">Search</button>-->
+<!--      </div>-->
+<!--    </form>-->
+
+<!--  </div>-->
+  <br>
+  <br>
+  <div>
+    <table style="margin-bottom: 50px;" class=" table table-responsive table-striped  border-dark">
+
+      <thead class="table-dark ">
+      <tr>
+        <th>Id</th>
+        <th>Employee ID</th>
+        <th>Amount</th>
+        <th>Bonus Date</th>
+        <th>Reason</th>
+        <!-- <th>Joining Date</th> -->
+       <th>Actions</th>
+      </tr>
+
+      </thead>
+
+
+      <tbody>
+      <tr *ngFor = "let bonusDto of bonus">
+        <td>{{bonusDto.id}}</td>
+        <td>{{bonusDto.empId}}</td>
+        <td>{{bonusDto.amount}}</td>
+        <td>{{ bonusDto.bonusDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{bonusDto.reason}}</td>
+        <td>
+          <button *ngIf="isSameOrFutureMonth(bonusDto.bonusDate)" (click) = "updateBonus(bonusDto.id)" class = "btn  btn-secondary btn-sm"> Update</button>
+
+          <button *ngIf="isSameOrFutureMonth(bonusDto.bonusDate)" (click) = "deleteBonus(bonusDto.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
+
+        </td>
+      </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+  <div class="text-center" style="margin-top: 20px;">
+    <button (click)="addNewBonus()" class="btn btn-primary">Add New Bonus</button>
+  </div>
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <button (click)="previousPage()" class="btn btn-primary">Previous</button>-->
+<!--    </div>-->
+<!--    <div class="col text-right">-->
+<!--      <button (click)="nextPage()" class="btn btn-primary">Next</button>-->
+<!--    </div>-->
+<!--  </div>-->
+  <br><br><br><br>
+
+
+</div>
