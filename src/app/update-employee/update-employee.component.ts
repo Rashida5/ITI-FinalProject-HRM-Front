@@ -3,6 +3,10 @@ import { Employee } from '../models/employee';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
 import { ActivatedRoute } from '@angular/router';
+import {DepartmentDto} from "../models/DepartmentDto";
+import {JobDto} from "../models/JobDto";
+import {DepartmentService} from "../services/department.service";
+import {JobService} from "../services/job.service";
 
 
 @Component({
@@ -12,16 +16,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UpdateEmployeeComponent {
 
-
-
-
-
-
     id: number;
   employee: Employee = new Employee();
-
+  departments: DepartmentDto[] = [];
+  jobs: JobDto[] = [];
 
   constructor(private employeeService: EmployeeService,
+              private departmentService: DepartmentService,
+              private jobService: JobService,
     private route: ActivatedRoute,
     private router: Router) {
       this.id=0
@@ -29,7 +31,8 @@ export class UpdateEmployeeComponent {
     //loading the data into form
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-
+    this.loadDepartments();
+    this.fetchJobs();
     this.employeeService.getEmployeeById(this.id).subscribe(data => {
       this.employee = data;
     }, error => console.log(error));
@@ -46,5 +49,21 @@ export class UpdateEmployeeComponent {
 
   goToEmployeeList(){
     this.router.navigate(['/show-all-employees']);
+  }
+  loadDepartments(): void {
+    this.departmentService.getDepartmentList().subscribe(
+      data => this.departments = data,
+      error => console.error('Error fetching departments', error)
+    );
+  }
+  fetchJobs(): void {
+    this.jobService.getJobList().subscribe(
+      (data) => {
+        this.jobs = data;
+      },
+      (error) => {
+        console.error('Error fetching jobs', error);
+      }
+    );
   }
 }

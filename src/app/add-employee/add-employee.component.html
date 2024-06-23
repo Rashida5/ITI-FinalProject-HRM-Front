@@ -76,14 +76,14 @@
 
           <div class="form-group col-md-6">
             <label class="form-label"><b>Designation</b></label>
-            <select id="designation" class="form-select" [(ngModel)]="employee.designation" name="designation"
+            <select id="designation" class="form-select" [(ngModel)]="employee.jobId" name="designation"
                     required #designation="ngModel" [ngClass]="{ 'is-invalid': f.submitted && designation.errors }">
 
               <div *ngIf="f.submitted && designation.errors" class="invalid-feedback">
                 <div *ngIf="designation.errors['required']">Designation is required</div>
               </div>
               <option selected disabled value="">Choose...</option>
-              <option *ngFor="let job of jobs" [value]="job.jobTitle">{{job.jobTitle}}</option>
+              <option *ngFor="let job of jobs" [value]="job.jobId">{{job.jobTitle}}</option>
             </select>
           </div>
 

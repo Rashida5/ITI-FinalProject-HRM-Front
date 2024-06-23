@@ -37,7 +37,7 @@ export class EmployeeService {
   }
 
   addEmployee(employee: Employee): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, employee);
+    return this.httpClient.post(`${this.baseURL}`,this.mapEmployeeToEmployeeDto( employee));
   }
 
   getEmployeeById(id: number): Observable<Employee>{
@@ -49,7 +49,8 @@ export class EmployeeService {
 
 
   updateEmployee(id: number, employee: Employee): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`, employee);
+  //  var Data = this.mapEmployeeToEmployeeDto(employee);
+    return this.httpClient.put(`${this.baseURL}/${id}`, this.mapEmployeeToEmployeeDto(employee));
   }
 
   deleteEmployee(id: number): Observable<Object>{
@@ -63,12 +64,44 @@ export class EmployeeService {
     employee.fname = employeeDto.firstName;
     employee.lname = employeeDto.lastName;
     employee.email = employeeDto.email;
+    employee.phoneNumber = employeeDto.phoneNumber;
+    employee.mangerId = employeeDto.managerId;
     employee.salary = 0; // Default value since it's not available in EmployeeDto
     employee.department = employeeDto.departmentName; // Placeholder, adjust based on actual data if available
     employee.designation = employeeDto.jobTitle; // Placeholder, adjust based on actual data if available
     employee.joiningDate = datePipe.transform(employeeDto.startDate, 'yyyy-MM-dd') || '';
-
+    employee.employmentStatus = employeeDto.employmentStatus;
+    employee.country = employeeDto.country;
+    employee.city = employeeDto.city;
+    employee.state = employeeDto.state;
+    employee.street = employeeDto.street;
+    employee.zipCode = employeeDto.zipCode;
     return employee;
+  }
+  mapEmployeeToEmployeeDto(employee: Employee): EmployeeDto {
+    const employeeDto = new EmployeeDto();
+    const datePipe = new DatePipe('en-US');
+
+  //  employeeDto.employeeId = employee.id;
+    employeeDto.firstName = employee.fname;
+    employeeDto.lastName = employee.lname;
+    employeeDto.email = employee.email;
+    employeeDto.phoneNumber = employee.phoneNumber;
+    employeeDto.employmentStatus = employee.employmentStatus;
+    employeeDto.startDate = new Date(employee.joiningDate); // Converting string to Date
+    employeeDto.endDate = new Date(employee.joiningDate); // Converting string to Date
+    employeeDto.managerId = employee.mangerId;
+    employeeDto.jobId = employee.jobId;
+    employeeDto.departmentId = employee.departmentId;
+  //  employeeDto.departmentName = employee.department;
+   // employeeDto.jobTitle = employee.designation;
+    employeeDto.country = employee.country;
+    employeeDto.city = employee.city;
+    employeeDto.state = employee.state;
+    employeeDto.street= employee.street;
+    employeeDto.zipCode = employee.zipCode;
+    console.log(employeeDto);
+    return employeeDto;
   }
 }
 
