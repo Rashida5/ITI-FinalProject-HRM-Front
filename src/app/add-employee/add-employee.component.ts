@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import {DepartmentService} from "../services/department.service";
 import {DepartmentDto} from "../models/DepartmentDto";
+import {JobService} from "../services/job.service";
+import {JobDto} from "../models/JobDto";
 
 
 
@@ -20,9 +22,11 @@ import {DepartmentDto} from "../models/DepartmentDto";
 export class AddEmployeeComponent //implements OnInit//
 {
   departments: DepartmentDto[] = [];
+  jobs: JobDto[] = [];
   constructor(
     private departmentService: DepartmentService,
     private employeeService: EmployeeService,
+    private jobService: JobService,
     private router: Router,
 
   ) {
@@ -34,6 +38,16 @@ export class AddEmployeeComponent //implements OnInit//
     this.departmentService.getDepartmentList().subscribe(
       data => this.departments = data,
       error => console.error('Error fetching departments', error)
+    );
+  }
+  fetchJobs(): void {
+    this.jobService.getJobList().subscribe(
+      (data) => {
+        this.jobs = data;
+      },
+      (error) => {
+        console.error('Error fetching jobs', error);
+      }
     );
   }
   submitform!: NgForm;
@@ -58,6 +72,7 @@ export class AddEmployeeComponent //implements OnInit//
 
   ngOnInit(): void {
     this.loadDepartments();
+    this.fetchJobs();
   }
   onSubmit() {
     console.log(this.employee);

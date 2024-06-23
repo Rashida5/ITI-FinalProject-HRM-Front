@@ -8,8 +8,8 @@ footer{
 }
 
 .full-width-button {
-    width: 100%; 
-}  
+    width: 100%;
+}
 
 
 form {
@@ -23,12 +23,13 @@ button{
 }
 
 .form-container {
-    border: 1px solid #000000; 
+    border: 1px solid #000000;
     padding: 20px; /* Add some padding for better visual appearance */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
-/* 
+/*
 .lable{
-    border: 1px solid #000000;  
+    border: 1px solid #000000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 } */
 

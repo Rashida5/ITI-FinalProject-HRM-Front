@@ -6,12 +6,21 @@ export class Employee {
     fname!: string;
     lname!: string;
     email!: string;
+    phoneNumber!: string;
+    employmentStatus!: string;
     salary!: number;
     department: string;
     designation:string;
     joiningDate!: string;
-  departmentId!:number;
-
+    endDate!: string;
+    mangerId!:number;
+    jobId!:number;
+    departmentId!:number;
+    city!:string;
+    state!:string;
+    country!:string;
+    street!:string;
+    zipCode!:string;
 
   constructor() {
     this.email="@gmail.com";

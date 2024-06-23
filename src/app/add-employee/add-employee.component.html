@@ -1,6 +1,5 @@
 <br><br>
 <br><br>
-<!-- <a routerLink="/show-all-employees" class="btn btn-primary">Go somewhere</a> -->
 <div class="container-sm">
     <div class="col-md-6 offset-md-3  container-sm ">
         <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="row g-3 form-container  container-sm">
@@ -46,32 +45,19 @@
                 </div>
 
 
-
             </div>
 
-
-
+          <div class="form-group col-md-6">
+            <label class="form-label"><b>Phone Number</b></label>
+            <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="employee.phoneNumber" name="phoneNumber"
+                   required pattern="^\d{10,}$" #phoneNumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phoneNumber.errors }" />
+            <div *ngIf="f.submitted && phoneNumber.errors" class="invalid-feedback">
+              <div *ngIf="phoneNumber.errors['required']">Phone number is required</div>
+              <div *ngIf="phoneNumber.invalid">Phone number must be at least 10 digits</div>
+            </div>
+          </div>
 
             <br><br>
-
-<!--            <div class="form-group col-md-6">-->
-<!--                <label class="form-label"><b>Department</b></label>-->
-<!--                <select id="department" class="form-select" [(ngModel)]="employee.department" name="department" required-->
-<!--                    #department="ngModel" [ngClass]="{ 'is-invalid': f.submitted && department.errors }">-->
-
-
-<!--                    <div *ngIf="f.submitted && department.errors" class="invalid-feedback">-->
-<!--                        <div *ngIf="department.errors['required']">Department is required</div>-->
-<!--                    </div>-->
-
-
-<!--                    <option selected disabled value="">Choose..</option>-->
-<!--                    <option>IT</option>-->
-<!--                    <option>HR</option>-->
-<!--                    <option>Finance</option>-->
-<!--                    <option>Marketing</option>-->
-<!--                </select>-->
-<!--            </div>-->
 
           <div class="form-group col-md-6">
             <label class="form-label"><b>Department</b></label>
@@ -88,29 +74,48 @@
 
 
 
-
           <div class="form-group col-md-6">
-                <label class="form-label"><b>Designation</b></label>
-                <select id="designation" class="form-select" [(ngModel)]="employee.designation" name="designation"
+            <label class="form-label"><b>Designation</b></label>
+            <select id="designation" class="form-select" [(ngModel)]="employee.designation" name="designation"
                     required #designation="ngModel" [ngClass]="{ 'is-invalid': f.submitted && designation.errors }">
 
+              <div *ngIf="f.submitted && designation.errors" class="invalid-feedback">
+                <div *ngIf="designation.errors['required']">Designation is required</div>
+              </div>
+              <option selected disabled value="">Choose...</option>
+              <option *ngFor="let job of jobs" [value]="job.jobTitle">{{job.jobTitle}}</option>
+            </select>
+          </div>
 
-                    <div *ngIf="f.submitted && designation.errors" class="invalid-feedback">
-                        <div *ngIf="designation.errors['required']">Designation is required</div>
-                    </div>
-                    <option selected disabled value="">Choose...</option>
-                    <option>Developer</option>
-                    <option>Manager</option>
-                    <option>Analyst</option>
-                    <option>Accountant</option>
-                    <option>System Analyst</option>
-                </select>
+          <br><br>
+
+          <div class="form-group col-md-6">
+            <label class="form-label"><b>Employment Status</b></label>
+            <select id="employmentStatus" class="form-select" [(ngModel)]="employee.employmentStatus" name="employmentStatus"
+                    required #employmentStatus="ngModel" [ngClass]="{ 'is-invalid': f.submitted && employmentStatus.errors }">
+              <div *ngIf="f.submitted && employmentStatus.errors" class="invalid-feedback">
+                <div *ngIf="employmentStatus.errors['required']">Employment status is required</div>
+              </div>
+              <option selected disabled value="">Choose...</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Contract">Contract</option>
+              <option value="Intern">Intern</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label><b>Manager ID</b></label>
+            <input type="number" class="form-control" id="managerId" [(ngModel)]="employee.mangerId" name="managerId"
+                   required #managerId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && managerId.errors }">
+            <div *ngIf="f.submitted && managerId.errors" class="invalid-feedback">
+              <div *ngIf="managerId.errors['required']">Manager ID is required</div>
             </div>
-
+          </div>
             <br><br>
 
             <div class="form-group col-md-6">
-                <label><b>Salary</b></label>
+                <label><b>Net Salary</b></label>
                 <input type="text" class="form-control" id="salary" [(ngModel)]="employee.salary" name="salary"
                 required pattern="^[1-9]\d{2,}$"
                     #salary="ngModel" [ngClass]="{ 'is-invalid': f.submitted && salary.errors }" />
@@ -125,24 +130,7 @@
 
             </div>
 
-
-
             <div class=" form-group col-md-6">
-
-
-
-
-                <!-- <button (click)="toggleData()"> Choose Date </button>
-                <div *ngIf = "showVariable">
-                <ngb-datepicker #dp name = "joiningDate"[(ngModel)]="model" (navigate)="date = $event.next" />
-                <pre>Month: {{ date.month }}.{{ date.year }}</pre>
-                <pre>Model: {{ model | json }}</pre>
-
-            </div> -->
-
-
-
-
 
                      <label><b>Joining Date</b></label>
                     <input type="date" class="form-control" id="joiningDate" [(ngModel)]="employee.joiningDate"
@@ -154,29 +142,56 @@
                     </div>
 
 
-                    <!-- <mat-form-field>
-                        <label><b>Joining Date</b></label>
-                        <input matInput [matDatepicker]="picker"  class="form-control" id="joiningDate" [(ngModel)]="employee.joiningDate"
-                            name="joiningDate" required #joiningDate="ngModel"
-                            [ngClass]="{ 'is-invalid': f.submitted && joiningDate.errors }">
-
-                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-
-                        <div *ngIf="f.submitted && joiningDate.errors" class="invalid-feedback">
-                            <div *ngIf="joiningDate.errors['required']">Joining Date is required</div>
-                        </div>
-
-                    </mat-form-field> -->
-
-
-
-
-
-
-
             </div>
 
+          <div class="form-group col-md-6">
+            <label><b>Country</b></label>
+            <input type="text" class="form-control" id="country" [(ngModel)]="employee.country" name="country" required
+                   #country="ngModel" [ngClass]="{ 'is-invalid': f.submitted && country.errors }" />
+            <div *ngIf="f.submitted && country.errors" class="invalid-feedback">
+              <div *ngIf="country.errors['required']">Country is required</div>
+            </div>
+          </div>
+
+          <br><br>
+
+          <div class="form-group col-md-6">
+            <label><b>City</b></label>
+            <input type="text" class="form-control" id="city" [(ngModel)]="employee.city" name="city" required
+                   #city="ngModel" [ngClass]="{ 'is-invalid': f.submitted && city.errors }" />
+            <div *ngIf="f.submitted && city.errors" class="invalid-feedback">
+              <div *ngIf="city.errors['required']">City is required</div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label><b>Zip Code</b></label>
+            <input type="text" class="form-control" id="zipCode" [(ngModel)]="employee.zipCode" name="zipCode" required
+                   #zipCode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && zipCode.errors }" />
+            <div *ngIf="f.submitted && zipCode.errors" class="invalid-feedback">
+              <div *ngIf="zipCode.errors['required']">Zip Code is required</div>
+            </div>
+          </div>
+
+         <br><br>
+
+          <div class="form-group col-md-6">
+            <label><b>State</b></label>
+            <input type="text" class="form-control" id="state" [(ngModel)]="employee.state" name="state" required
+                   #state="ngModel" [ngClass]="{ 'is-invalid': f.submitted && state.errors }" />
+            <div *ngIf="f.submitted && state.errors" class="invalid-feedback">
+              <div *ngIf="state.errors['required']">State is required</div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label><b>Street</b></label>
+            <input type="text" class="form-control" id="street" [(ngModel)]="employee.street" name="street" required
+                   #street="ngModel" [ngClass]="{ 'is-invalid': f.submitted && street.errors }" />
+            <div *ngIf="f.submitted && street.errors" class="invalid-feedback">
+              <div *ngIf="street.errors['required']">Street is required</div>
+            </div>
+          </div>
 
             <br><br><br><br>
 
