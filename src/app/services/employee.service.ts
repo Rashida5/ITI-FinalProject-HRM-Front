@@ -12,7 +12,6 @@ import { DatePipe } from '@angular/common';
 export class EmployeeService {
 
 
-
   private baseURL = "http://localhost:8222/api/v1/employees/employees";
 
   constructor(private httpClient: HttpClient ) { }

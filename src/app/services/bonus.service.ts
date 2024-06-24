@@ -9,6 +9,7 @@ import { BonusDto } from '../models/BonusDto';
 })
 export class BonusService {
  private baseURL = `http://localhost:8222/api/v1/vacations/bonus`;
+
   constructor(private httpClient: HttpClient) {}
 
   getSumOfBonuses(empId: number, year?: number, month?: number): Observable<number> {
