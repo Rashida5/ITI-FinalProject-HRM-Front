@@ -9,7 +9,7 @@ import { VacationDto } from '../models/VacationDto';
 })
 export class VacationListComponent {
 
-  vacations: VacationDto[]; 
+  vacations: VacationDto[];
   pageNumber: number = 0; // Initial page number
   pageSize: number = 5; // Number of items per page
 
@@ -30,7 +30,7 @@ export class VacationListComponent {
     });
   }
 
-  
+
   previousPage(): void {
     if (this.pageNumber > 0) {
       this.pageNumber--;
