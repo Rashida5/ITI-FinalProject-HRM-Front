@@ -21,15 +21,11 @@
 
     <thead class="table-dark ">
         <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <!-- <th>Salary</th> -->
-            <th>Department</th>
-            <th>Designation</th>
-            <!-- <th>Joining Date</th> -->
-            <th>Actions</th>
+            <th>Vacation Id</th>
+            <th>Employee Id</th>
+            <th>reason</th>
+            <th>vacation Date</th>
+            <!-- <th>Actions</th> -->
         </tr>
 
     </thead>
@@ -41,23 +37,19 @@
             <td>{{vacation.empId}}</td>
             <td>{{vacation.reason}}</td>
             <td>{{vacation.vacationDate}}</td>
-            <td>
+            <!-- <td>
                 <button (click) = "deleteVacation(vacation.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
-            </td>
+            </td> -->
         </tr>
     </tbody>
 
 
 </table>
 </div>
-  <div class="row">
-    <div class="col">
-      <button (click)="previousPage()" class="btn btn-primary">Previous</button>
-    </div>
-    <div class="col text-right">
-      <button (click)="nextPage()" class="btn btn-primary">Next</button>
-    </div>
+<div class="text-center" style="margin-top: 20px;">
+    <button (click)="addNewVacation()" class="btn btn-primary">Add New Vacation</button>
   </div>
+ 
 <br><br><br><br>
 
 
