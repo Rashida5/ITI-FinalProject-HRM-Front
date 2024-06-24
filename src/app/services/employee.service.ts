@@ -5,6 +5,7 @@ import {map, Observable} from 'rxjs';
 import { Employee } from '../models/employee';
 import {EmployeeDto} from "../models/EmployeeDto";
 import { DatePipe } from '@angular/common';
+import {BonusDto} from "../models/BonusDto";
 
 @Injectable({
   providedIn: 'root'
@@ -17,22 +18,23 @@ export class EmployeeService {
   constructor(private httpClient: HttpClient ) { }
 
   getEmployeesList(page:number , size:number): Observable<Employee[]>{
-   return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+   // return this.httpClient.get<BonusDto[]>(this.baseURL);
+    //return this.httpClient.get<Employee[]>(`${this.baseURL}`);
     //
     // // return this.httpClient.get<EmployeeDto[]>(`${this.baseURL}/1`).pipe(
     // //   map(employeeDtos => employeeDtos.map(this.mapEmployeeDtoToEmployee.bind(this)))
     // // );
-    // let params = new HttpParams()
-    //   .set('page', page)
-    //   .set('size', size);
-    //
-    // return this.httpClient.get<any>(this.baseURL, { params }).pipe(
-    //   map((response: any) => {
-    //     return response.content.map((employeeDto: any) => {
-    //       return this.mapEmployeeDtoToEmployee(employeeDto);
-    //     });
-    //   })
-    // );
+    let params = new HttpParams()
+      .set('page', page)
+      .set('size', size);
+
+    return this.httpClient.get<any>(this.baseURL, { params }).pipe(
+      map((response: any) => {
+        return response.content.map((employeeDto: any) => {
+          return this.mapEmployeeDtoToEmployee(employeeDto);
+        });
+      })
+    );
   }
 
   addEmployee(employee: Employee): Observable<Object>{

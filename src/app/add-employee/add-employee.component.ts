@@ -60,9 +60,9 @@ export class AddEmployeeComponent //implements OnInit//
 
   saveEmployee() {
     this.employeeService.addEmployee(this.employee).subscribe(data => {
-      console.log(data);
-      this.goToEmployeeList();
-    },
+        console.log(data);
+        this.goToEmployeeList();
+      },
       error => console.log(error));
   }
 
@@ -83,12 +83,3 @@ export class AddEmployeeComponent //implements OnInit//
 
 
 }
-
-
-
-
-
-
-
-
-

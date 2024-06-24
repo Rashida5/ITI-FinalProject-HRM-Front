@@ -8,7 +8,6 @@ import {JobDto} from "../models/JobDto";
 })
 export class JobService{
  private baseURL="http://localhost:8222/api/v1/employees/jobs";
- // private baseURL= "http://localhost:7474/jobs";
   constructor(private httpClient: HttpClient ) {
 
   }
