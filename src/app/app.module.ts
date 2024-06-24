@@ -22,7 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BonusListComponent } from './bouns-list/bonus-list.component';
-import { BounsAddComponent, BonusAddComponent } from './bonus-add/bonus-add.component';
+import {  BonusAddComponent } from './bonus-add/bonus-add.component';
 
 
 
@@ -36,7 +36,6 @@ import { BounsAddComponent, BonusAddComponent } from './bonus-add/bonus-add.comp
          ShowDetailsComponent,
          AdminLoginComponent,
          BonusListComponent,
-         BounsAddComponent,
          BonusAddComponent
   ],
   imports: [

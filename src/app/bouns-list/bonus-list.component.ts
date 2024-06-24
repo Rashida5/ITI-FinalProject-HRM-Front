@@ -3,7 +3,7 @@ import {EmployeeService} from "../services/employee.service";
 import {Router} from "@angular/router";
 import {BonusService} from "../services/bonus.service";
 import {BonusDto} from "../models/BonusDto";
-
+import { FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-bouns-list',
   templateUrl: './bonus-list.component.html',

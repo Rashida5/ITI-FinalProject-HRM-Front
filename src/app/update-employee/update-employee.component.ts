@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
 import { ActivatedRoute } from '@angular/router';
 import {DepartmentDto} from "../models/DepartmentDto";
+import { FormsModule, NgForm } from '@angular/forms';
 import {JobDto} from "../models/JobDto";
 import {DepartmentService} from "../services/department.service";
 import {JobService} from "../services/job.service";
