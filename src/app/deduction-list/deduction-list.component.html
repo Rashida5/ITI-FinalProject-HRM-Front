@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="form-group col-md-6 inline">
+    <input [(ngModel)]="enteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by Employee ID">
+    <button class="btn btn-secondary" (click)="searchDeductionsByEmployeeId()">Search</button>
+  </div>
+  <br>
+  <br>
+  <div>
+    <table style="margin-bottom: 50px;" class="table table-responsive table-striped border-dark">
+      <thead class="table-dark">
+      <tr>
+        <th>Id</th>
+        <th>Employee ID</th>
+        <th>Amount</th>
+        <th>Deduction Date</th>
+        <th>Reason</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let deductionDto of deductions">
+        <td>{{deductionDto.id}}</td>
+        <td>{{deductionDto.empId}}</td>
+        <td>{{deductionDto.amount}}</td>
+        <td>{{ deductionDto.deductionDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{deductionDto.reason}}</td>
+        <td>
+          <button *ngIf="isSameOrFutureMonth(deductionDto.deductionDate)" (click)="updateDeduction(deductionDto.id)" class="btn btn-secondary btn-sm">Update</button>
+          <button *ngIf="isSameOrFutureMonth(deductionDto.deductionDate)" (click)="deleteDeduction(deductionDto.id)" class="btn btn-danger btn-sm" style="margin-left: 10px">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center" style="margin-top: 20px;">
+    <button (click)="addNewDeduction()" class="btn btn-primary">Add New Deduction</button>
+  </div>
+  <div class="text-center" style="margin-top: 20px;">
+    <button (click)="deleteCurrentMonthDeductions()" class="btn btn-danger">Delete Deductions of Current Month</button>
+  </div>
+  <br><br><br><br>
+</div>
+

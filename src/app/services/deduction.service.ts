@@ -59,4 +59,7 @@ export class DeductionService {
   getAllDeductions(): Observable<DeductionDto[]> {
     return this.httpClient.get<DeductionDto[]>(this.baseURL);
   }
+  getDeductionById(id: number): Observable<DeductionDto> {
+    return this.httpClient.get<DeductionDto>(`${this.baseURL}/${id}`);
+  }
 }

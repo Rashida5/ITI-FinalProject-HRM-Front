@@ -9,6 +9,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import {BonusListComponent} from "./bouns-list/bonus-list.component";
 import {BonusAddComponent} from "./bonus-add/bonus-add.component";
 import {BonusUpdateComponent} from "./bonus-update/bonus-update.component";
+import { DeductionListComponent } from './deduction-list/deduction-list.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'bonus', component:BonusListComponent},
   {path:'add-bonus', component:BonusAddComponent},
   {path:'update-bonus/:id', component:BonusUpdateComponent}
+  {path:'deduction', component:DeductionListComponent}
 ];
 
 @NgModule({
