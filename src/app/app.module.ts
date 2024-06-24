@@ -23,6 +23,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BonusListComponent } from './bouns-list/bonus-list.component';
 import {  BonusAddComponent } from './bonus-add/bonus-add.component';
+import { BonusUpdateComponent } from './bonus-update/bonus-update.component';
 
 
 
@@ -36,7 +37,8 @@ import {  BonusAddComponent } from './bonus-add/bonus-add.component';
          ShowDetailsComponent,
          AdminLoginComponent,
          BonusListComponent,
-         BonusAddComponent
+         BonusAddComponent,
+         BonusUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
 <div class="container-sm">
   <div class="col-md-6 offset-md-3 container-sm">
-    <form #f="ngForm" (ngSubmit)="f.form.valid && addNewBonus(f)" class="row g-3 form-container container-sm">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="row g-3 form-container container-sm">
 
       <div class="form-group col-md-6">
         <label><b>Employee ID</b></label>
-        <input type="number" class="form-control" id="empId" [(ngModel)]="newBonus.empId" name="empId" required
+        <input type="number" class="form-control" id="empId" [(ngModel)]="bonus.empId" name="empId" required
                #empId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empId.errors }" />
         <div *ngIf="f.submitted && empId.errors" class="invalid-feedback">
           <div *ngIf="empId.errors['required']">Employee ID is required</div>
@@ -13,7 +13,7 @@
 
       <div class="form-group col-md-6">
         <label><b>Amount</b></label>
-        <input type="number" class="form-control" id="amount" [(ngModel)]="newBonus.amount" name="amount" required
+        <input type="number" class="form-control" id="amount" [(ngModel)]="bonus.amount" name="amount" required
                #amount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && amount.errors }" />
         <div *ngIf="f.submitted && amount.errors" class="invalid-feedback">
           <div *ngIf="amount.errors['required']">Amount is required</div>
@@ -22,7 +22,7 @@
 
       <div class="form-group col-md-6">
         <label><b>Reason</b></label>
-        <input type="text" class="form-control" id="reason" [(ngModel)]="newBonus.reason" name="reason" required
+        <input type="text" class="form-control" id="reason" [(ngModel)]="bonus.reason" name="reason" required
                #reason="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reason.errors }" />
         <div *ngIf="f.submitted && reason.errors" class="invalid-feedback">
           <div *ngIf="reason.errors['required']">Reason is required</div>
@@ -31,7 +31,7 @@
 
       <div class="form-group col-md-6">
         <label><b>Bonus Date</b></label>
-        <input type="date" class="form-control" id="bonusDate" [(ngModel)]="newBonus.bonusDate" name="bonusDate" required
+        <input type="date" class="form-control" id="bonusDate" [(ngModel)]="bonus.bonusDate" name="bonusDate" required
                #bonusDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bonusDate.errors }" />
         <div *ngIf="f.submitted && bonusDate.errors" class="invalid-feedback">
           <div *ngIf="bonusDate.errors['required']">Bonus Date is required</div>
@@ -43,7 +43,7 @@
       </div>
 
       <div class="col-md-6">
-        <button type="button" (click)="cancelAddBonus()" class="btn btn-danger full-width-button">Cancel</button>
+        <button type="button" (click)="goToBonusList()" class="btn btn-danger full-width-button">Cancel</button>
       </div>
 
     </form>

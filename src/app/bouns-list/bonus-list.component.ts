@@ -22,7 +22,7 @@ export class BonusListComponent {
     this.bonusService.getAllBonuses().subscribe(data => {this.bonus = data;});
   }
   updateBonus(id: number){
-    this.router.navigate(['updating-by-id', id]);
+    this.router.navigate(['update-bonus', id]);
   }
 
 

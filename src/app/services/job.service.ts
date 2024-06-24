@@ -7,8 +7,10 @@ import {JobDto} from "../models/JobDto";
   providedIn: 'root'
 })
 export class JobService{
+
   private baseURL="http://localhost:8222/api/v1/employees/jobs";
-  
+
+
   constructor(private httpClient: HttpClient ) {
 
   }
