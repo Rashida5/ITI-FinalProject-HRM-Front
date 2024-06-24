@@ -24,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BonusListComponent } from './bouns-list/bonus-list.component';
 import {  BonusAddComponent } from './bonus-add/bonus-add.component';
 import { BonusUpdateComponent } from './bonus-update/bonus-update.component';
+import { VacationListComponent } from './vacation-list/vacation-list.component';
+import { AddVacationComponent } from './add-vacation/add-vacation.component';
 
 
 
@@ -38,7 +40,9 @@ import { BonusUpdateComponent } from './bonus-update/bonus-update.component';
          AdminLoginComponent,
          BonusListComponent,
          BonusAddComponent,
-         BonusUpdateComponent
+         BonusUpdateComponent,
+         VacationListComponent,
+         AddVacationComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import {BonusListComponent} from "./bouns-list/bonus-list.component";
 import {BonusAddComponent} from "./bonus-add/bonus-add.component";
 import {BonusUpdateComponent} from "./bonus-update/bonus-update.component";
+import { VacationListComponent } from './vacation-list/vacation-list.component';
+import { AddVacationComponent } from './add-vacation/add-vacation.component';
 
 
 
@@ -23,7 +25,10 @@ const routes: Routes = [
   {path:'login',component:AdminLoginComponent},
   {path:'bonus', component:BonusListComponent},
   {path:'add-bonus', component:BonusAddComponent},
-  {path:'update-bonus/:id', component:BonusUpdateComponent}
+  {path:'update-bonus/:id', component:BonusUpdateComponent},
+  { path: 'vacations', component: VacationListComponent },
+  { path: 'add-vacation', component: AddVacationComponent },
+  
 ];
 
 @NgModule({
