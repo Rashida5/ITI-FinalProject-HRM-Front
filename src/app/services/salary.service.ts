@@ -8,7 +8,7 @@ import { SalaryDto } from '../models/SalaryDto';
   providedIn: 'root'
 })
 export class SalaryService {
-  private baseURL = `http://localhost:8080/service2/v1/salary`;
+  private baseURL = `http://localhost:8222/api/v1/vacations/salary`;
 
   constructor(private httpClient: HttpClient) {}
 

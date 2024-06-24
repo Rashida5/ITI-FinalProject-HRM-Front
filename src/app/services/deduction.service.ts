@@ -8,7 +8,7 @@ import { DeductionDto } from '../models/DeductionDto';
   providedIn: 'root'
 })
 export class DeductionService {
-  private baseURL = `http://localhost:8080/service2/v1/deduction`;
+  private baseURL = `http://localhost:8222/api/v1/vacations/deduction`;
 
   constructor(private httpClient: HttpClient) {}
 
