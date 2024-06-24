@@ -10,6 +10,8 @@ import {BonusListComponent} from "./bouns-list/bonus-list.component";
 import {BonusAddComponent} from "./bonus-add/bonus-add.component";
 import {BonusUpdateComponent} from "./bonus-update/bonus-update.component";
 import { DeductionListComponent } from './deduction-list/deduction-list.component';
+import { DeductionAddComponent } from './deduction-add/deduction-add.component';
+import { DeductionUpdateComponent } from './deduction-update/deduction-update.component';
 
 
 
@@ -24,8 +26,10 @@ const routes: Routes = [
   {path:'login',component:AdminLoginComponent},
   {path:'bonus', component:BonusListComponent},
   {path:'add-bonus', component:BonusAddComponent},
-  {path:'update-bonus/:id', component:BonusUpdateComponent}
-  {path:'deduction', component:DeductionListComponent}
+  {path:'update-bonus/:id', component:BonusUpdateComponent},
+  {path:'deduction', component:DeductionListComponent},
+  {path:'add-deduction', component:DeductionAddComponent},
+  {path:'update-deduction/:id', component:DeductionUpdateComponent}
 ];
 
 @NgModule({
