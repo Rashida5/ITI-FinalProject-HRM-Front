@@ -5,6 +5,7 @@ import {map, Observable} from 'rxjs';
 import { Employee } from '../models/employee';
 import {EmployeeDto} from "../models/EmployeeDto";
 import { DatePipe } from '@angular/common';
+import {BonusDto} from "../models/BonusDto";
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,17 @@ import { DatePipe } from '@angular/common';
 export class EmployeeService {
 
 
+  private baseURL = "http://localhost:8222/api/v1/employees/employees";
 
-  //private baseURL = "http://localhost:8080/api/v1/employees";
-  private baseURL="http://localhost:8222/api/v1/employees/employees";
-// private baseURL = "http://localhost:7474/employees"
   constructor(private httpClient: HttpClient ) { }
 
   getEmployeesList(page:number , size:number): Observable<Employee[]>{
-   // return this.httpClient.get<Employee[]>(`${this.baseURL}`);
-
-    // return this.httpClient.get<EmployeeDto[]>(`${this.baseURL}/1`).pipe(
-    //   map(employeeDtos => employeeDtos.map(this.mapEmployeeDtoToEmployee.bind(this)))
-    // );
+   // return this.httpClient.get<BonusDto[]>(this.baseURL);
+    //return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+    //
+    // // return this.httpClient.get<EmployeeDto[]>(`${this.baseURL}/1`).pipe(
+    // //   map(employeeDtos => employeeDtos.map(this.mapEmployeeDtoToEmployee.bind(this)))
+    // // );
     let params = new HttpParams()
       .set('page', page)
       .set('size', size);

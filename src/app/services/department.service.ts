@@ -11,7 +11,8 @@ import {DepartmentDto} from "../models/DepartmentDto";
 })
 export class DepartmentService {
   private baseURL="http://localhost:8222/api/v1/employees/departments";
-  //private baseURL = "http://localhost:7474/departments";
+
+
   constructor(private httpClient: HttpClient ) {
 
   }
