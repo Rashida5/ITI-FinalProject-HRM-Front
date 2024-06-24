@@ -11,6 +11,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class BonusListComponent {
       bonus:BonusDto[];
+      enteredID: string = '';
   constructor(private bonusService: BonusService,  private router: Router) {
     this.bonus=[];
 
@@ -24,10 +25,6 @@ export class BonusListComponent {
   updateBonus(id: number){
     this.router.navigate(['update-bonus', id]);
   }
-
-
-
-
   deleteBonus(id: number){
 
     if(confirm("Are you sure to delete Bonus ID: "+id)){
@@ -61,5 +58,26 @@ export class BonusListComponent {
       return false;
     }
   }
+  searchBonusesByEmployeeId() {
+    if (this.enteredID.trim() !== '') {
+      const empId = Number(this.enteredID);
+      this.bonusService.getAllBonusesForEmployee(empId).subscribe(data => {
+        this.bonus = data;
+      });
+    } else {
+      this.getBonus();
+    }
+  }
+  deleteCurrentMonthBonuses() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1; // Month is 0-based in JavaScript Date object
 
+    if (confirm(`Are you sure you want to delete all bonuses for ${year}-${month}?`)) {
+      this.bonusService.deleteAllBonusesForMonthAndYear(year, month).subscribe(data => {
+        console.log(data);
+        this.getBonus();
+      });
+    }
+  }
 }

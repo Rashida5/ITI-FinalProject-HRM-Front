@@ -8,8 +8,8 @@ import { BonusDto } from '../models/BonusDto';
   providedIn: 'root'
 })
 export class BonusService {
- // private baseURL = `http://localhost:8222/api/v1/vacations/bonus`;
-private baseURL = 'http://localhost:7575/service2/v1/bonus';
+  private baseURL = `http://localhost:8222/api/v1/vacations/bonus`;
+//private baseURL = 'http://localhost:8070/service2/v1/bonus';
   constructor(private httpClient: HttpClient) {}
 
   getSumOfBonuses(empId: number, year?: number, month?: number): Observable<number> {

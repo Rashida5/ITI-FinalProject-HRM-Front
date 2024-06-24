@@ -14,6 +14,10 @@
 <!--    </form>-->
 
 <!--  </div>-->
+  <div class="form-group col-md-6 inline">
+    <input [(ngModel)]="enteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by Employee ID">
+    <button class="btn btn-secondary" (click)="searchBonusesByEmployeeId()">Search</button>
+  </div>
   <br>
   <br>
   <div>
@@ -63,6 +67,9 @@
 <!--      <button (click)="nextPage()" class="btn btn-primary">Next</button>-->
 <!--    </div>-->
 <!--  </div>-->
+  <div class="text-center" style="margin-top: 20px;">
+    <button (click)="deleteCurrentMonthBonuses()" class="btn btn-danger">Delete Bonuses of Current Month</button>
+  </div>
   <br><br><br><br>
 
 
