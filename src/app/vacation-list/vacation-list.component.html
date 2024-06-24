@@ -8,7 +8,7 @@
         <form >
             <div class="form-group col-md-6 inline ">
 
-                <input  [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by ID">
+<!--                <input  [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by ID">-->
                 <button class="btn btn-secondary " type="submit">Search</button>
             </div>
         </form>
@@ -35,21 +35,21 @@
     </thead>
 
 
-    <tbody>
-        <tr *ngFor = "let employee of employees">
-            <td>{{employee.id}}</td>
-            <td>{{employee.fname}}</td>
-            <td>{{employee.lname}}</td>
-            <td>{{employee.email}}</td>
-            <!-- <td>{{employee.salary}}</td> -->
-            <td>{{employee.department}}</td>
-            <td>{{employee.designation}}</td>
-            <!-- <td>{{employee.joiningDate}}</td> -->
-            <td>
-                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
-            </td>
-        </tr>
-    </tbody>
+<!--    <tbody>-->
+<!--        <tr *ngFor = "let employee of employees">-->
+<!--            <td>{{employee.id}}</td>-->
+<!--            <td>{{employee.fname}}</td>-->
+<!--            <td>{{employee.lname}}</td>-->
+<!--            <td>{{employee.email}}</td>-->
+<!--            &lt;!&ndash; <td>{{employee.salary}}</td> &ndash;&gt;-->
+<!--            <td>{{employee.department}}</td>-->
+<!--            <td>{{employee.designation}}</td>-->
+<!--            &lt;!&ndash; <td>{{employee.joiningDate}}</td> &ndash;&gt;-->
+<!--            <td>-->
+<!--                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </tbody>-->
 
 
 </table>
