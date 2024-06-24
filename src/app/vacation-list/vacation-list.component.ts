@@ -8,6 +8,9 @@ import { VacationDto } from '../models/VacationDto';
   styleUrls: ['./vacation-list.component.css']
 })
 export class VacationListComponent {
+addNewVacation() {
+throw new Error('Method not implemented.');
+}
 
   vacations: VacationDto[];
   pageNumber: number = 0; // Initial page number
@@ -21,6 +24,7 @@ export class VacationListComponent {
   ngOnInit() {
     this.vacationService.getVacations().subscribe(data => {
       console.log(data); // Handle your data here
+      this.vacations = data;
     });
   }
 
@@ -42,6 +46,7 @@ export class VacationListComponent {
   }
 
   deleteVacation(vacationId: number|undefined) {
+    console.log(vacationId+ "deleted");
     this.vacationService.deleteVacation(vacationId)
   }
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,9 @@ export class VacationService {
   }
 
   deleteVacation(vacationId: number|undefined): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${vacationId}`);
+    console.log("delete request "+ vacationId);
+  
+    console.log(`${this.apiUrl}/${vacationId}`);
+    return this.http.delete<string>(`${this.apiUrl}/${vacationId}`);
   }
 }
