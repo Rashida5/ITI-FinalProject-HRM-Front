@@ -13,28 +13,27 @@ export class EmployeeService {
 
 
 
-  //private baseURL = "http://localhost:8080/api/v1/employees";
-//  private baseURL="http://localhost:8222/api/v1/employees/employees";
- private baseURL = "http://localhost:7474/employees"
+  private baseURL = "http://localhost:8222/api/v1/employees/employees";
+
   constructor(private httpClient: HttpClient ) { }
 
   getEmployeesList(page:number , size:number): Observable<Employee[]>{
-   // return this.httpClient.get<Employee[]>(`${this.baseURL}`);
-
-    // return this.httpClient.get<EmployeeDto[]>(`${this.baseURL}/1`).pipe(
-    //   map(employeeDtos => employeeDtos.map(this.mapEmployeeDtoToEmployee.bind(this)))
+   return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+    //
+    // // return this.httpClient.get<EmployeeDto[]>(`${this.baseURL}/1`).pipe(
+    // //   map(employeeDtos => employeeDtos.map(this.mapEmployeeDtoToEmployee.bind(this)))
+    // // );
+    // let params = new HttpParams()
+    //   .set('page', page)
+    //   .set('size', size);
+    //
+    // return this.httpClient.get<any>(this.baseURL, { params }).pipe(
+    //   map((response: any) => {
+    //     return response.content.map((employeeDto: any) => {
+    //       return this.mapEmployeeDtoToEmployee(employeeDto);
+    //     });
+    //   })
     // );
-    let params = new HttpParams()
-      .set('page', page)
-      .set('size', size);
-
-    return this.httpClient.get<any>(this.baseURL, { params }).pipe(
-      map((response: any) => {
-        return response.content.map((employeeDto: any) => {
-          return this.mapEmployeeDtoToEmployee(employeeDto);
-        });
-      })
-    );
   }
 
   addEmployee(employee: Employee): Observable<Object>{
