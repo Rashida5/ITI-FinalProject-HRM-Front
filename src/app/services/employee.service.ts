@@ -14,7 +14,8 @@ export class EmployeeService {
 
 
   //private baseURL = "http://localhost:8080/api/v1/employees";
-  private baseURL="http://localhost:8222/api/v1/employees/employees";
+//  private baseURL="http://localhost:8222/api/v1/employees/employees";
+ private baseURL = "http://localhost:7474/employees"
   constructor(private httpClient: HttpClient ) { }
 
   getEmployeesList(page:number , size:number): Observable<Employee[]>{
