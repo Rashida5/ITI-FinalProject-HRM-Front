@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { VacationService } from '../services/vacation.service';
+import { VacationDto } from '../models/VacationDto';
 
 @Component({
   selector: 'app-vacation-list',
@@ -7,11 +8,14 @@ import { VacationService } from '../services/vacation.service';
   styleUrls: ['./vacation-list.component.css']
 })
 export class VacationListComponent {
-  // vacations: any[]; 
+
+  vacations: VacationDto[]; 
   pageNumber: number = 0; // Initial page number
   pageSize: number = 5; // Number of items per page
 
-  constructor(private vacationService: VacationService) { }
+  constructor(private vacationService: VacationService) {
+    this.vacations = [];
+  }
 
 
   ngOnInit() {
@@ -35,5 +39,9 @@ export class VacationListComponent {
 
   nextPage(): void {
     this.pageNumber++;
+  }
+
+  deleteVacation(vacationId: number|undefined) {
+    this.vacationService.deleteVacation(vacationId)
   }
 }
