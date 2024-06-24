@@ -27,6 +27,11 @@ import { BonusUpdateComponent } from './bonus-update/bonus-update.component';
 import { VacationListComponent } from './vacation-list/vacation-list.component';
 import { AddVacationComponent } from './add-vacation/add-vacation.component';
 
+import { DeductionListComponent } from './deduction-list/deduction-list.component';
+import { DeductionAddComponent } from './deduction-add/deduction-add.component';
+import { DeductionUpdateComponent } from './deduction-update/deduction-update.component';
+
+
 
 
 @NgModule({
@@ -41,8 +46,14 @@ import { AddVacationComponent } from './add-vacation/add-vacation.component';
          BonusListComponent,
          BonusAddComponent,
          BonusUpdateComponent,
+
          VacationListComponent,
-         AddVacationComponent
+         AddVacationComponent,
+
+         DeductionListComponent,
+         DeductionAddComponent,
+         DeductionUpdateComponent
+
   ],
   imports: [
     BrowserModule,

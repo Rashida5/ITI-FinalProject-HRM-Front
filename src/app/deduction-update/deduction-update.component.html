@@ -1,0 +1,52 @@
+<div class="container-sm">
+    <div class="col-md-6 offset-md-3 container-sm">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="row g-3 form-container container-sm">
+  
+        <div class="form-group col-md-6">
+          <label><b>Employee ID</b></label>
+          <input type="number" class="form-control" id="empId" [(ngModel)]="deduction.empId" name="empId" required
+                 #empId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empId.errors }" />
+          <div *ngIf="f.submitted && empId.errors" class="invalid-feedback">
+            <div *ngIf="empId.errors['required']">Employee ID is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label><b>Amount</b></label>
+          <input type="number" class="form-control" id="amount" [(ngModel)]="deduction.amount" name="amount" required
+                 #amount="ngModel" [ngClass]="{ 'is-invalid': f.submitted && amount.errors }" />
+          <div *ngIf="f.submitted && amount.errors" class="invalid-feedback">
+            <div *ngIf="amount.errors['required']">Amount is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label><b>Reason</b></label>
+          <input type="text" class="form-control" id="reason" [(ngModel)]="deduction.reason" name="reason" required
+                 #reason="ngModel" [ngClass]="{ 'is-invalid': f.submitted && reason.errors }" />
+          <div *ngIf="f.submitted && reason.errors" class="invalid-feedback">
+            <div *ngIf="reason.errors['required']">Reason is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label><b>Deduction Date</b></label>
+          <input type="date" class="form-control" id="deductionDate" [(ngModel)]="deduction.deductionDate" name="deductionDate" required
+                 #deductionDate="ngModel" [ngClass]="{ 'is-invalid': f.submitted && deductionDate.errors }" />
+          <div *ngIf="f.submitted && deductionDate.errors" class="invalid-feedback">
+            <div *ngIf="deductionDate.errors['required']">Deduction Date is required</div>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <button class="btn btn-success full-width-button" type="submit">Submit</button>
+        </div>
+  
+        <div class="col-md-6">
+          <button type="button" (click)="goToDeductionList()" class="btn btn-danger full-width-button">Cancel</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

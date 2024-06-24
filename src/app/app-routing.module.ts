@@ -9,8 +9,14 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import {BonusListComponent} from "./bouns-list/bonus-list.component";
 import {BonusAddComponent} from "./bonus-add/bonus-add.component";
 import {BonusUpdateComponent} from "./bonus-update/bonus-update.component";
+
 import { VacationListComponent } from './vacation-list/vacation-list.component';
 import { AddVacationComponent } from './add-vacation/add-vacation.component';
+
+import { DeductionListComponent } from './deduction-list/deduction-list.component';
+import { DeductionAddComponent } from './deduction-add/deduction-add.component';
+import { DeductionUpdateComponent } from './deduction-update/deduction-update.component';
+
 
 
 
@@ -26,9 +32,14 @@ const routes: Routes = [
   {path:'bonus', component:BonusListComponent},
   {path:'add-bonus', component:BonusAddComponent},
   {path:'update-bonus/:id', component:BonusUpdateComponent},
+
   { path: 'vacations', component: VacationListComponent },
   { path: 'add-vacation', component: AddVacationComponent },
-  
+
+  {path:'deduction', component:DeductionListComponent},
+  {path:'add-deduction', component:DeductionAddComponent},
+  {path:'update-deduction/:id', component:DeductionUpdateComponent}
+
 ];
 
 @NgModule({
