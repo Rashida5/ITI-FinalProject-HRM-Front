@@ -9,12 +9,17 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class VacationService {
   
+  
   private apiUrl = 'http://localhost:8222/api/v1/vacations/vacations'; 
 
   constructor(private http: HttpClient) { }
 
   getVacations(): Observable<any> {
     return this.http.get(this.apiUrl);
+  }
+
+  getAllVacationForEmployee(empId: number):Observable<any> {
+    return this.http.get(`${this.apiUrl}/employee/${empId}`);
   }
 
   addVacation(vacation: any): Observable<any> {
