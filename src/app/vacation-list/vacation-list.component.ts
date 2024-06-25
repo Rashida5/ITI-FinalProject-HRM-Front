@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { VacationService } from '../services/vacation.service';
 import { VacationDto } from '../models/VacationDto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vacation-list',
@@ -9,14 +10,14 @@ import { VacationDto } from '../models/VacationDto';
 })
 export class VacationListComponent {
 addNewVacation() {
-throw new Error('Method not implemented.');
+  this.goToAddVactionPage();
 }
 
   vacations: VacationDto[];
   pageNumber: number = 0; // Initial page number
   pageSize: number = 5; // Number of items per page
 
-  constructor(private vacationService: VacationService) {
+  constructor(private vacationService: VacationService, private router: Router) {
     this.vacations = [];
   }
 
@@ -48,5 +49,9 @@ throw new Error('Method not implemented.');
   deleteVacation(vacationId: number|undefined) {
     console.log(vacationId+ "deleted");
     this.vacationService.deleteVacation(vacationId)
+  }
+
+  goToAddVactionPage() {
+    this.router.navigate(['/add-vacation']);
   }
 }
