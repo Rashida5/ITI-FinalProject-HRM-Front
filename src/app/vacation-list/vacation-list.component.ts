@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./vacation-list.component.css']
 })
 export class VacationListComponent {
-addNewVacation() {
-  this.goToAddVactionPage();
-}
+
 
   vacations: VacationDto[];
+  enteredID: string = '';
   pageNumber: number = 0; // Initial page number
   pageSize: number = 5; // Number of items per page
 
@@ -23,10 +22,18 @@ addNewVacation() {
 
 
   ngOnInit() {
+    this.getAllVacations();
+  }
+
+  getAllVacations(){
     this.vacationService.getVacations().subscribe(data => {
       console.log(data); // Handle your data here
       this.vacations = data;
     });
+  }
+
+  addNewVacation() {
+    this.goToAddVactionPage();
   }
 
   addVacation(vacation: any) {
@@ -46,12 +53,41 @@ addNewVacation() {
     this.pageNumber++;
   }
 
-  deleteVacation(vacationId: number|undefined) {
-    console.log(vacationId+ "deleted");
-    this.vacationService.deleteVacation(vacationId)
+  deleteVacation(vacationId: number | undefined): void {
+    if (vacationId != null) {
+      this.vacationService.deleteVacation(vacationId).subscribe({
+        next: (response) => {
+          console.log('Vacation deleted successfully', response);
+          // Handle successful deletion here (e.g., update UI)
+          this.getAllVacations();
+        },
+        error: (error) => {
+          console.error('Error deleting vacation', error);
+          // Handle error here
+        }
+      });
+    } else {
+      console.log('Vacation ID is undefined');
+    }
   }
 
   goToAddVactionPage() {
     this.router.navigate(['/add-vacation']);
+  }
+
+  searchVacationByEmployeeId() {
+    if (this.enteredID.trim() !== '') {
+      const empId = Number(this.enteredID);
+      this.vacationService.getAllVacationForEmployee(empId).subscribe(data => {
+        if (data.length === 0) {
+          alert('There is no vacation for this employee.');
+        } else {
+          console.log("search "+data);
+          this.vacations = data;
+        }
+      });
+    } else {
+      this.getAllVacations();
+    }
   }
 }

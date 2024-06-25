@@ -1,19 +1,14 @@
 <br>
 <br>
-<!-- <h1>Employee List</h1> -->
 
 <div class="container">
 
-<!--    <div >-->
-<!--        <form >-->
-<!--            <div class="form-group col-md-6 inline ">-->
+    <div class="form-group col-md-6 inline">
+        <input [(ngModel)]="enteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by Employee ID">
+        <button class="btn btn-secondary" (click)="searchVacationByEmployeeId()">Search</button>
+        <button class="btn btn-secondary" (click)="getAllVacations()">Reset</button>
+    </div>
 
-<!--                &lt;!&ndash; <input  [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by ID"> &ndash;&gt;-->
-<!--                <button class="btn btn-secondary " type="submit">Search</button>-->
-<!--            </div>-->
-<!--        </form>-->
-
-<!--    </div>-->
     <br>
     <br>
 <div>
@@ -25,7 +20,7 @@
             <th>Employee Id</th>
             <th>reason</th>
             <th>vacation Date</th>
-            <!-- <th>Actions</th> -->
+            <th>Actions</th>
         </tr>
 
     </thead>
@@ -37,9 +32,9 @@
             <td>{{vacation.empId}}</td>
             <td>{{vacation.reason}}</td>
             <td>{{vacation.vacationDate}}</td>
-            <!-- <td>
+            <td>
                 <button (click) = "deleteVacation(vacation.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
-            </td> -->
+            </td>
         </tr>
     </tbody>
 
