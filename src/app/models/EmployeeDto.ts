@@ -18,6 +18,7 @@ export class EmployeeDto {
   country!:string;
   street!:string;
   zipCode!:string;
+  currentSalary!: number;
 constructor() {
 }
   // constructor(

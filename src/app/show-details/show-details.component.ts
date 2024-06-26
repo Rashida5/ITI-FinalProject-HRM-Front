@@ -26,6 +26,7 @@ export class ShowDetailsComponent {
 
     this.employee = new Employee();
     this.employeService.getEmployeeById(this.id).subscribe( data => {
+      console.log(data);
       this.employee = data;
     });
   }
