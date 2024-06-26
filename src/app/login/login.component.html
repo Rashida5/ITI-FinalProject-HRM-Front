@@ -1,0 +1,7 @@
+<ng-container *ngIf="!isLoggedIn">
+  <button (click)="login()">Login</button>
+</ng-container>
+<ng-container *ngIf="isLoggedIn">
+  Welcome {{ username }}
+  <button (click)="logout()">Logout</button>
+</ng-container>

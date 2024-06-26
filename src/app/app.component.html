@@ -28,27 +28,24 @@
       </li>
 
     </ul>
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item" style="margin-right: 4rem;">
-<!--            <a routerLink="login" routerLinkActive="active" class="nav-link">Admin Login-->
-<!--                <span  class="logout-option" id="logoutOption"><a routerLink="" routerLinkActive="active" class="nav-link">Logout</a></span>-->
-<!--            </a>-->
-        </li>
-
-    </ul>
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item" style="margin-right: 4rem;">
+      <app-login></app-login>
+    </li>
+  </ul>
 </nav>
-<script>
-        // Add an event listener to the link element
-        document.getElementById('loginLink').addEventListener('mouseover', function () {
-            // Change the content of the logout option
-            document.getElementById('logoutOption').innerText = 'Logout Option';
-        });
+<!--<script>-->
+<!--        // Add an event listener to the link element-->
+<!--        document.getElementById('loginLink').addEventListener('mouseover', function () {-->
+<!--            // Change the content of the logout option-->
+<!--            document.getElementById('logoutOption').innerText = 'Logout Option';-->
+<!--        });-->
 
-        // Reset the content when the mouse leaves the link
-        document.getElementById('loginLink').addEventListener('mouseout', function () {
-            document.getElementById('logoutOption').innerText = 'Logout';
-        });
-    </script>
+<!--        // Reset the content when the mouse leaves the link-->
+<!--        document.getElementById('loginLink').addEventListener('mouseout', function () {-->
+<!--            document.getElementById('logoutOption').innerText = 'Logout';-->
+<!--        });-->
+<!--    </script>-->
 
 
 <!-- <div class="container"> -->
