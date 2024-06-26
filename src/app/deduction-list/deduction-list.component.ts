@@ -36,7 +36,10 @@ export class DeductionListComponent {
       this.deductionService.deleteDeductionById(id).subscribe(data => {
         console.log(data);
         this.getDeductions();
-      });
+      }, error =>{
+        this.getDeductions();  
+      }
+    );
     }
   }
 

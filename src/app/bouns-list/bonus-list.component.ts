@@ -31,7 +31,11 @@ export class BonusListComponent {
       this.bonusService.deleteBonusById(id).subscribe( data => {
         console.log(data);
         this.getBonus();
-      })}
+      }, error =>{
+        this.getBonus();  
+      }
+    )
+    }
   }
   addNewBonus() {
     // Logic to add a new bonus
