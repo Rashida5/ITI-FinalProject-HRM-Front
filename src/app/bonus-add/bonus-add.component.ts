@@ -22,7 +22,9 @@ export class BonusAddComponent {
           console.log('Bonus added successfully', data);
           this.goToBonusList();
         },
-        error => console.error('Error adding bonus', error)
+        error => {
+          this.goToBonusList();
+          console.error('Error adding bonus', error)}
       );
     }
   }

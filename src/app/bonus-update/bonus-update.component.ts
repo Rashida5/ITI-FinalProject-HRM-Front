@@ -35,7 +35,9 @@ export class BonusUpdateComponent {
       data => {
         this.goToBonusList();
       },
-      error => console.log(error)
+      error => {console.log(error)
+        this.goToBonusList();
+      }
     );
   }
 

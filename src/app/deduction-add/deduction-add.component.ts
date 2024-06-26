@@ -24,7 +24,9 @@ export class DeductionAddComponent {
           console.log('Deduction added successfully', data);
           this.goToDeductionList();
         },
-        error => console.error('Error adding deduction', error)
+        error =>{ console.error('Error adding deduction', error)
+            this.goToDeductionList();
+        }
       );
     }
   }

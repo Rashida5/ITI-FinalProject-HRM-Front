@@ -37,7 +37,7 @@ export class DeductionListComponent {
         console.log(data);
         this.getDeductions();
       }, error =>{
-        this.getDeductions();  
+        this.getDeductions();
       }
     );
     }
@@ -88,7 +88,11 @@ export class DeductionListComponent {
       this.deductionService.deleteAllDeductionsForMonthAndYear(year, month).subscribe(data => {
         console.log(data);
         this.getDeductions();
-      });
+      },error =>{
+        this.getDeductions();
+      }
+
+      );
     }
   }
 }

@@ -13,7 +13,7 @@ export class AddVacationComponent {
   newVacation: VacationDto = new VacationDto(0, '',new Date(), 0);
 
   constructor(private vacationService: VacationService, private router: Router) {
-    
+
   }
 
 addNewVacation(form: NgForm) {
@@ -23,8 +23,10 @@ addNewVacation(form: NgForm) {
         console.log('Vacation added successfully', data);
         this.goToVacationList();
       },
-      error => console.error('Error adding Vacation', error)
-    );
+      error => {
+        console.error('Error adding Vacation', error)
+        this.goToVacationList();
+      }    );
   }
 }
 

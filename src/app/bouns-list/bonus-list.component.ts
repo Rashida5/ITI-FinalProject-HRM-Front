@@ -32,7 +32,7 @@ export class BonusListComponent {
         console.log(data);
         this.getBonus();
       }, error =>{
-        this.getBonus();  
+        this.getBonus();
       }
     )
     }
@@ -81,7 +81,11 @@ export class BonusListComponent {
       this.bonusService.deleteAllBonusesForMonthAndYear(year, month).subscribe(data => {
         console.log(data);
         this.getBonus();
-      });
+      },error =>{
+        this.getBonus();
+      }
+
+      );
     }
   }
 }
