@@ -43,7 +43,7 @@ export class EmployeeService {
 
   getEmployeeById(id: number): Observable<Employee>{
   //  return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
-    return this.httpClient.get<EmployeeDto>(`${this.baseURL}/${id}`).pipe(
+    return this.httpClient.get<EmployeeDto>(`${this.baseURL}/detail/${id}`).pipe(
       map(employeeDto => this.mapEmployeeDtoToEmployee(employeeDto))
     );
   }
@@ -77,6 +77,7 @@ export class EmployeeService {
     employee.state = employeeDto.state;
     employee.street = employeeDto.street;
     employee.zipCode = employeeDto.zipCode;
+    employee.salary = employeeDto.currentSalary;
     return employee;
   }
   mapEmployeeToEmployeeDto(employee: Employee): EmployeeDto {
@@ -101,6 +102,7 @@ export class EmployeeService {
     employeeDto.state = employee.state;
     employeeDto.street= employee.street;
     employeeDto.zipCode = employee.zipCode;
+    employeeDto.currentSalary = employee.salary;
     console.log(employeeDto);
     return employeeDto;
   }

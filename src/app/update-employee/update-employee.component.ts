@@ -45,7 +45,10 @@ export class UpdateEmployeeComponent {
     this.employeeService.updateEmployee(this.id, this.employee).subscribe( data =>{
       this.goToEmployeeList();
     }
-    , error => console.log(error));
+    , error => {console.log(error);
+      this.goToEmployeeList();
+    }
+  );
   }
 
   goToEmployeeList(){
