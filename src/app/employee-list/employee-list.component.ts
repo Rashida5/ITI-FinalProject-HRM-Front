@@ -52,14 +52,23 @@ export class EmployeeListComponent {
 
 
 
-  deleteEmployee(id: number){
-
-    if(confirm("Are you sure to delete Employee ID: "+id)){
-    this.employeeService.deleteEmployee(id).subscribe( data => {
-      console.log(data);
-      this.getEmployees();
-    })}
+  deleteEmployee(id: number): void {
+    if (confirm("Are you sure to delete Employee ID: " + id)) {
+      this.employeeService.deleteEmployee(id).subscribe({
+        next: (data) => {
+          console.log('Employee deleted successfully', data);
+          // Handle successful deletion here (e.g., update UI)
+          this.getEmployees();
+        },
+        error: (error) => {
+          console.error('Error deleting employee', error);
+          this.getEmployees();
+          // Handle error here
+        }
+      });
+    }
   }
+
 
 
   detailsOfEmployee(id: number){
