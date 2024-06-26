@@ -37,7 +37,7 @@ export class EmployeeService {
     );
   }
 
-  addEmployee(employee: Employee): Observable<Object>{
+  addEmployee(employee: Employee): Observable<any>{
     return this.httpClient.post(`${this.baseURL}`,this.mapEmployeeToEmployeeDto( employee));
   }
 

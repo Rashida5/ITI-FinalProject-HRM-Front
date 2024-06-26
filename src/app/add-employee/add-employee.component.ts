@@ -58,13 +58,30 @@ export class AddEmployeeComponent //implements OnInit//
 
 
 
+  // saveEmployee() {
+  //   console.log("aaaaaaaaaaaaa ");
+
+  //   this.employeeService.addEmployee(this.employee).subscribe(data => {
+  //       console.log("aaaaaaaaaaaaa "+data);
+  //       this.goToEmployeeList();
+  //     },
+  //     error => console.log(error));
+  // }
+
   saveEmployee() {
-    this.employeeService.addEmployee(this.employee).subscribe(data => {
-        console.log(data);
+    console.log("Attempting to save employee...");
+
+    this.employeeService.addEmployee(this.employee).subscribe(
+      data => {
+        console.log("Employee added successfully:", data);
         this.goToEmployeeList();
       },
-      error => console.log(error));
-  }
+      error => {
+        console.error("Error adding employee:", error);
+        this.goToEmployeeList();
+      }
+    );
+}
 
   goToEmployeeList() {
     this.router.navigate(['/show-all-employees']);
@@ -76,8 +93,6 @@ export class AddEmployeeComponent //implements OnInit//
   }
   onSubmit() {
     console.log(this.employee);
-
-
     this.saveEmployee();
   }
 
